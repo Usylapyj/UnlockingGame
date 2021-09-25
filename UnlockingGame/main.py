@@ -12,9 +12,9 @@ WIN_HEIGHT = 640
 MAX_FPS = 60
 
 # player properties
-JUMP_POWER = 17
-SPEED = 7
-GRAVITY = 1
+JUMP_POWER = 11
+SPEED = 6
+GRAVITY = 0.5
 
 # other properties
 IMG_DIR = os.path.dirname(__file__)
@@ -67,8 +67,8 @@ class Game:
             if event.type == pygame.QUIT:
                 self.finish_game()
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    self.finish_game()
+                # if event.key == pygame.K_ESCAPE:
+                #    self.finish_game()
                 if event.key == pygame.K_LEFT:
                     self.player.left = 1
                 if event.key == pygame.K_RIGHT:
@@ -108,7 +108,7 @@ class Game:
                      "1   2111       1",
                      "1  11111       1",
                      "11 4 4 4   31531",
-                     "1            4 1",
+                     "1           4  1",
                      "1   2 2  22    1",
                      "111111111111  11",
                      "1             31",
@@ -118,6 +118,7 @@ class Game:
                      "1 2 2222 2222221",
                      "1111111111111111"]
         start_pose = (1, 14)
+        #start_pose = (14, 8)
 
         return level_map, start_pose
 
