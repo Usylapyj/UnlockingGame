@@ -84,6 +84,7 @@ class Player(pygame.sprite.Sprite):
                     if yvel < 0:
                         self.rect.top = p.rect.bottom
                         self.yvel = 0
+                    break
                 elif p.type == "obstacle":
                     self.set_pose(self.startx, self.starty)
                     self.xvel = 0
