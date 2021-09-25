@@ -68,10 +68,6 @@ class Player(pygame.sprite.Sprite):
             if pygame.sprite.collide_mask(self, p):
                 if p.type == "finish":
                     f = True
-                elif p.type == "obstacle":
-                    self.set_pose(self.startx, self.starty)
-                    self.xvel = 0
-                    self.yvel = 0
                 elif p.type == "solid":
                     if xvel > 0:
                         self.rect.right = p.rect.left
@@ -88,6 +84,10 @@ class Player(pygame.sprite.Sprite):
                     if yvel < 0:
                         self.rect.top = p.rect.bottom
                         self.yvel = 0
+                elif p.type == "obstacle":
+                    self.set_pose(self.startx, self.starty)
+                    self.xvel = 0
+                    self.yvel = 0
             if self.mask.overlap_area(p.mask, (self.rect.x, self.rect.y+33)) > 0:
                 print(self.mask.overlap_area(
                     p.mask, (self.rect.x, self.rect.y+33)))
